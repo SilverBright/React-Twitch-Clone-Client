@@ -1,6 +1,12 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import authReducer from './authReducer';
 
 export default combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  form: formReducer 
 });
+
+// redux-form will manage all of our form data inside of our redux store
+// - handles mapStateToProps
+// - handles form action creator
