@@ -13,7 +13,7 @@ const PageOne = () => {
 const PageTwo = () => {
   return (
     <div>
-      PageTwo
+      Page Two 
       <Link to="/">Navigate to Page One</Link>
   </div>
   );
