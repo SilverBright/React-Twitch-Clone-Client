@@ -3,6 +3,8 @@ import React from 'react';
 class GoogleAuth extends React.Component {
   state = { isSignedIn: null }; 
 
+  // this will get moved into redux later
+
 
   // initialize the Google Oauth Process
   componentDidMount() {
@@ -15,17 +17,34 @@ class GoogleAuth extends React.Component {
         this.auth = window.gapi.auth2.getAuthInstance();
         // update component level state
         this.setState({ isSignedIn: this.auth.isSignedIn.get() })
+        // we are listening for sign in and out changes by the user
+        this.auth.isSignedIn.listen(this.onAuthChange);
       });
     });
   }
 
+  // manually updates page if user signs in or out
+  onAuthChange = () => {
+    this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+  };
+
   renderAuthButton() {
     if (this.state.isSignedIn === null) {
-      return <div>please sign in</div>;
+      return null;
     } else if (this.state.isSignedIn) {
-      return <div>you are signed in</div>;
+      return (
+         <button className="ui red google button">
+           <i className="google icon" />
+           sign out
+         </button> 
+        );
     } else {
-      return <div>you are not signed in</div>;
+      return (
+        <button className="ui red google button">
+          <i className="google icon" />
+            sign in with Google
+        </button>
+      )
       }
     }
   
