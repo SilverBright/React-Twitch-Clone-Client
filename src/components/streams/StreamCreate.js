@@ -4,11 +4,14 @@ import { Field, reduxForm } from 'redux-form';
 // this is a redux-form style form convention
 
 class StreamCreate extends React.Component {
-  renderInput({ input, label }) {
+  // meta property has an error property attached to it
+  // console.log(meta);
+  renderInput({ input, label, meta }) {
     return (
       <div className="field">
         <label>{label}</label>
         <input {...input} />
+        <div>{meta.error}</div>
       </div>
     );
   }
@@ -45,5 +48,6 @@ const validate = (formValues) => {
 };
 
 export default reduxForm({ 
-  form: 'streamCreate'
+  form: 'streamCreate',
+  validate
 })(StreamCreate); 
