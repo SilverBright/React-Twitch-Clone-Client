@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import { tsPropertySignature } from '@babel/types';
 import { fetchStream, editStream } from '../../actions';
@@ -10,7 +11,7 @@ class StreamEdit extends React.Component  {
   }
 
   onSubmit = (formValues) => {
-    console.log(formValues);
+    // console.log(formValues);
   };
 
   render() {
@@ -23,7 +24,9 @@ class StreamEdit extends React.Component  {
         <h3>Edit A Stream</h3>
         <StreamForm 
         // initialValues is a special redux-form helper function 
-          initialValues={this.props.stream} onSubmit={this.OnSubmit} />
+          initialValues={_.pick(this.props.stream, 'title', 'description')} 
+          onSubmit={this.OnSubmit} 
+        />
       </div>
     );
   }
