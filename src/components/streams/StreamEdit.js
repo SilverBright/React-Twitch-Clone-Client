@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import React from 'react';
-import { tsPropertySignature } from '@babel/types';
 import { fetchStream, editStream } from '../../actions';
 import { connect } from 'react-redux';
 import StreamForm from './StreamForm';
