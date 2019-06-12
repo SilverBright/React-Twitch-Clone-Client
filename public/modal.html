@@ -14,12 +14,31 @@
     margin-left: 300px;
   }
 
+  .modal-body {
+    background-color: white;
+    margin: auto;
+    height: 30%;
+    width: 30%;
+  }
 
-
+  .modal {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color:  grey;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
 
 </style>
 </head>
 <body>
+  <div class="modal">
+    <div class="modal-body">
+      <h1>I am a modal.</h1>
+    </div>
+  </div>
   <div class="sidebar">I am sidebar</div>
   <div class="content">
     <h1>I am some content.</h1>
