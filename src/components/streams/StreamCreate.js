@@ -6,6 +6,7 @@ import StreamForm from './StreamForm';
 // this is a redux-form style form convention
 
 class StreamCreate extends React.Component {
+  
   onSubmit = formValues => {
     this.props.createStream(formValues);
   };
